@@ -2,176 +2,110 @@
 
 [English](./README.md) | [简体中文](./README.zh-CN.md)
 
-> 一个面向财务自由的结构化知识库，以 AI Skill 形式呈现，让对话式学习变得轻松省力。
-> 一个小白问 AI：月薪 5000，存 1000，多久能退休？AI 给你答案。
+> 回答5个问题 → 明确你的FIRE阶段 → 获得专属工具 → 月度追踪进度 → 一键发给AI深度分析。
+> 为不知道从哪开始的投资小白而建，不只是给能读JSON的开发者。
 
 [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
 [![License: CC BY-SA 4.0](https://img.shields.io/badge/License-CC%20BY--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-sa/4.0/)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
-[![Discussions](https://img.shields.io/badge/Discussions-Open-blue.svg)](https://github.com/ada/awesome-financial-freedom/discussions)
+[![Discussions](https://img.shields.io/badge/Discussions-Open-blue.svg)](https://github.com/adashuai5/awesome-financial-freedom/discussions)
 
-**最近更新：2026-04-14**
+**创建日期**: 2026-04-12 · **最后更新**: 2026-04-26
 
-![演示：AI 回答退休规划与再平衡](assets/hero-demo.svg)
+![阶段诊断 → 6套工具 → 月度追踪 → AI分析](assets/hero-demo.svg)
 
-## 🧭 项目导航
+## 🧭 快速导航
 
-- **Playbooks**：[`playbooks/`](playbooks)
-- **Workflows**：[`workflows/`](workflows)
-- **Prompts**：[`prompts/`](prompts)
-- **Agents**：[`agents/`](agents)
-- **Data**：[`data/`](data)
-- **手册入口**：[`playbooks/guides/README.md`](playbooks/guides/README.md)
-- **系统架构**：[`playbooks/guides/money-os-architecture.md`](playbooks/guides/money-os-architecture.md)
-- **快速入门**：[`playbooks/tutorials/getting-started.md`](playbooks/tutorials/getting-started.md)
-- **书籍摘要**：[`playbooks/book-summaries`](playbooks/book-summaries)
-- **知识节点**：[`knowledge/nodes/`](knowledge/nodes)
-- **Skills**：[`skills/`](skills)
-- **工具**：[`tools/`](tools)
-- **贡献指南**：[`CONTRIBUTING.md`](CONTRIBUTING.md)
+- **演示**: [`https://adashuai5.github.io/awesome-financial-freedom/demo/`](https://adashuai5.github.io/awesome-financial-freedom/demo/) (在线，无需安装)
+- **Playbooks**（指南 + 教程）: [`playbooks/guides/`](playbooks/guides)
+- **知识节点**: [`knowledge/nodes/`](knowledge/nodes)
+- **工作流**: [`workflows/`](workflows)
+- **Prompts & Agents**: [`prompts/`](prompts) · [`agents/`](agents)
+- **Skills & Tools**: [`skills/`](skills) · [`tools/`](tools)
+- **书籍摘要**: [`playbooks/book-summaries/`](playbooks/book-summaries)
 
 ## 🤔 这是什么？
 
-**Awesome Financial Freedom** 是一个开源、AI 原生的财务自由知识库。它把 awesome list 的结构化策划与 AI Skill 的对话能力结合起来，实现“轻松”学习。
+**Awesome Financial Freedom** 是一个面向中国投资者的开源、AI 原生 FIRE 规划系统。结构化知识、确定性计算器、阶段化引导 UX 三合一，让投资小白知道今天该做什么——而不只是"数学上20年后能退休"。
 
-这个仓库不仅仅是静态链接列表，它还提供：
+核心组件：
 
-- 📚 包含心态、储蓄、投资和 FIRE 原则的**结构化 JSON 知识节点**
-- 🤖 支持 Claude 和 ChatGPT 的**即用型 AI Skills**，你可以问：
-  - _“我每月收入 5000 美元，存 1000 美元。我什么时候可以退休？”_
-  - _“帮我看看我的组合：70% 标普 500，30% 债券。”_
-  - _“什么是‘双轮资产配置’方法？”_
-- 🧮 内置计算器和公式，提供透明、逐步的答案
-- ✅ **可立即执行的行动清单**，请查看 [`playbooks/guides/actionable-steps.md`](playbooks/guides/actionable-steps.md)
-
-**零配置，直接对话或本地运行工作流。**
-
-## 🚀 直接可用入口
-
-如果你希望快速启动并直接得到执行建议，请先运行下面两个核心工作流：
-
-- `npm run run:workflow workflows/fire_planning.yaml`
-- `npm run run:workflow workflows/portfolio_rebalancing.yaml`
-
-> 这是当前最直接的“快速验证”方式。本地命令会输出你要的结果，仓库中的截图演示了实际对话和计算输出。
-
-这两个入口会直接输出：
-
-- FIRE 目标资产和达成年限
-- 关键行动建议
-- 资产配置再平衡买卖方案
-
-## ✅ 现在能做什么
-
-### 1️⃣ 直接生成财富自由计划
-
-运行：
-
-```bash
-npm run run:workflow workflows/fire_planning.yaml
-```
-
-它会模拟执行 FIRE 规划工作流，并输出：
-
-- 目标资产
-- 预计达到 FIRE 的年限
-- 关键行动建议
-
-### 2️⃣ 直接生成再平衡方案
-
-运行：
-
-```bash
-npm run run:workflow workflows/portfolio_rebalancing.yaml
-```
-
-它会模拟执行再平衡工作流，输出：
-
-- 当前资产配置偏差
-- 买入/卖出建议
-- 交易阈值和风险说明
+- 🎯 **5题阶段诊断** — 30秒内定位你的FIRE阶段（负债清偿 → 应急建设 → 投资启动 → 储蓄加速 → 配置优化 → 冲刺FIRE）
+- 🛠️ **6套阶段专属工具** — 债务雪崩/雪球计算器、应急金进度条、DCA收益模拟、储蓄率敏感性表、再平衡检查清单、Coast FIRE计算
+- 📊 **扩展FIRE计算器** — 收入增长模拟、副业场景对比、退休生活方式对比（大城市/二线/东南亚套利/极简）、Coast FIRE检查
+- 🏦 **中国市场特化** — 综合所得税档 + 专项附加扣除 → "税后真实储蓄率"；个人养老金（12000元/年抵税）；公积金优化；ETF代码（510300/513500/518880）
+- 📊 **多方案对比器** — 保存 2-4 个方案（如"现状/加薪 10%/副业 3k/搬清迈"），并排展示 FIRE 年限差异
+- 💾 **月度快照追踪** — localStorage 存储，折线图，趋势箭头，**支持 CSV / JSON 导出**，无需后端
+- 🧠 **29 个 JSON 知识节点** — 计算结果旁内联展示相关知识卡（含 limitations）
+- 🤖 **一键 AI 分析（BYOK）** — 填入自己的 Anthropic API key（仅存浏览器），直连 Claude 流式输出 8 段分析；或复制 prompt 给任意 LLM
 
 ## 🎯 目标用户
 
-- 想要直接拿到“财富自由方向”和“执行步骤”的人
-- 刚工作想存钱但不知道从哪开始的年轻人
-- 听说了 FIRE 但不知道具体怎么算的人
-- 想用 AI 帮自己理财的人
-- 需要把“理财策略”转成“实际行动”的人
+- 想要一条直接通往财务自由的路径和可执行步骤的人
+- 想存钱但不知道从哪开始年轻职场人
+- 听说过 FIRE 但不知道怎么算的人
+- 希望 AI 帮助规划财务的人
+- 想把财务策略转化为可执行计划的人
 
 ## ✨ 为什么要做这个？
 
-网络上充斥着个人理财博客、付费课程和零散建议，但缺少一个专注于财务自由、开源、结构化、适配 AI 的知识库。
+互联网上充斥着个人理财博客、付费课程和零散建议。但**没有一个开源、结构化、AI 就绪的财务自由执行系统**，专门帮助人们把计划变成行动。
 
-本项目通过提供**社区驱动、透明、可对话的学习路径**来填补这一空白。项目的核心创新在于把 awesome list 结构化策划和 AI Skill 对话能力结合起来，实现“轻松”学习。
+这个项目填补了这个空白：提供一个**社区驱动、透明、可执行的 AI 规划系统**。核心创新在于将结构化工作流、Prompt 模板和计算器逻辑整合为一个可用的执行引擎。
 
 ## 📚 知识来源
 
-精选自：
+- FIRE 数学：4% 法则、Trinity Study（[Wikipedia](https://en.wikipedia.org/wiki/Trinity_study)）
+- 双轮配置（沪深300 + 标普500 + 黄金 + 债券）
+- 中国第三支柱养老金（个人养老金）规则
+- FIRE 社区关于储蓄率、Coast FIRE、地理套利的研究
+- 更多来源见 [`playbooks/book-summaries/`](playbooks/book-summaries/)
 
-- Tony Robbins 的《Money: Master the Game》三部曲（[Amazon](https://www.amazon.com/Money-Master-Game-7-Simple/dp/1476757801)）
-- JL Collins 的《The Simple Path to Wealth》（[Amazon](https://www.amazon.com/Simple-Path-Wealth-financial-independence/dp/1533667926)）
-- FIRE 数学（4% 规则、三一研究）（[Wikipedia](https://en.wikipedia.org/wiki/Trinity_study)）
-- 阿秋的《让钱去工作》（双轮资产配置）（[JD.com](https://item.jd.com/100240963394.html) 或搜索“让钱去工作 阿秋”）
-- 以及更多内容（参见 `playbooks/book-summaries`）
+## 🔧 如何使用
 
-## 🚀 如何使用（最省力方式）
+### 1️⃣ 立即体验（无需安装）
 
-### 0️⃣ 快速命令
+打开 **`https://adashuai5.github.io/awesome-financial-freedom/demo/`**
 
-使用以下本地命令验证、测试并运行工作流：
+页面第一件事：5个是/否问题，30秒内定位你的FIRE阶段，对应工具自动加载——不需要读完整计算器。
 
-- `npm run validate` — 校验知识节点和 README 同步
-- `npm run test` — 运行现有计算器测试套件
-- `npm run ci` — 运行验证、构建技能并测试
-- `npm run run:workflow workflows/<workflow-file>.yaml` — 模拟执行工作流
-- `npm run generate:task ./task.md` — 生成示例任务 Markdown 文件
+### 2️⃣ 填入你的数字（可选但建议）
 
-### 1️⃣ 与 AI 对话（最简单）
+主表单需要：年龄、收入、支出、各类资产（银行/公积金/股票/房产）、负债、风险偏好。新增字段：个人养老金缴费、收入增长率、副业月收入、目标退休年龄、退休生活方式。
 
-- 将 **Awesome Financial Freedom Skill** 添加到你的 Claude 或 ChatGPT
-- 开始提问，AI 会检索相关知识节点并为你执行计算
+### 3️⃣ 深入探索
 
-### 2️⃣ 浏览知识库
+拿到一次结果后，可深入了解系统：
 
-克隆仓库并查看 `/knowledge/nodes` 目录。每个 `.json` 文件包含：
-
-- `question_patterns`（AI 会监听的提问方式）
-- `answer`，包括 summary、formula、example、limitations
-- `action_item`（具体的下一步行动）
-- `source` 引用
-
-### 3️⃣ AI 可执行工作流
-
-本项目新增 `workflows/` 目录，包含可由代理直接执行的标准化工作流。每个工作流都配套 `prompts/` 中的模板，并可以通过 `tools/run-workflow.js` 模拟执行。
-
-使用这些工作流可以自动化：
-
-- AI 内容生产与增长策略
-- 联盟营销 SEO 自动化
-- 指数基金定投模拟与教育计划
-
-> 维护文档时请运行 `npm run check:readmes`，以确保 `README.md` 和 `README.zh-CN.md` 保持一致。
-
-### 4️⃣ 自建工具
-
-使用结构化数据和计算器（`/tools`）将财务自由逻辑集成到你自己的应用中。
+| 如果你想… | 去哪里 |
+|----------|--------|
+| 本地运行 + AI 助手 | [`playbooks/tutorials/getting-started.md`](playbooks/tutorials/getting-started.md) |
+| 了解系统设计 | [`playbooks/guides/money-os-architecture.md`](playbooks/guides/money-os-architecture.md) |
+| 通过 CLI 执行 | `node tools/run-workflow.js workflows/fire_planning.yaml`（需 Node.js ≥18） |
+| 浏览全部工作流 | [`workflows/`](workflows) |
 
 ## 📖 知识结构
 
-- 01-mindset/ — 心态与价值观
-- 02-foundation/ — 基础财务健康
-- 03-accumulation/ — 储蓄与收入增长
-- 04-allocation/ — 资产配置与投资
-- 05-automation/ — 自动化储蓄与投资
-- 06-freedom/ — FIRE 目标与提款策略
-- 07-learning-path/ — 路径规划与阶段性行动建议
+七个从心态到财务自由的递进阶段：
+
+| 阶段 | 目录 | 你将学到 |
+|------|------|---------|
+| 01 — 心态 | [`knowledge/nodes/01-mindset/`](knowledge/nodes/01-mindset) | 财务自由真正意味着什么；钱是工具而非目标 |
+| 02 — 基础 | [`knowledge/nodes/02-foundation/`](knowledge/nodes/02-foundation) | 应急基金、保险、消除高息债务 |
+| 03 — 积累 | [`knowledge/nodes/03-accumulation/`](knowledge/nodes/03-accumulation) | 提高储蓄率；副业收入；复利基础 |
+| 04 — 配置 | [`knowledge/nodes/04-allocation/`](knowledge/nodes/04-allocation) | 资产配置、多元化、指数基金、再平衡 |
+| 05 — 自动化 | [`knowledge/nodes/05-automation/`](knowledge/nodes/05-automation) | 自动储蓄和投资，让纪律成为自动习惯 |
+| 06 — 自由 | [`knowledge/nodes/06-freedom/`](knowledge/nodes/06-freedom) | FIRE 数学、安全提取率、Coast FIRE、Barista FIRE |
+| 07 — 学习路径 | [`knowledge/nodes/07-learning-path/`](knowledge/nodes/07-learning-path) | 阶段路线图；下一步该读哪个节点 |
 
 ## 🤝 贡献
 
-欢迎贡献！请查看我们的 [Contributing Guide](CONTRIBUTING.md) 获取参与项目的详细说明。
+欢迎贡献！请阅读 [`CONTRIBUTING.md`](CONTRIBUTING.md) 了解：
+- 如何报告问题或建议新知识节点
+- Pull Request 工作流和编码风格
+- 如何添加 Prompts、工作流或 Playbook 内容
 
 ## 📄 许可
 
-- **知识内容**：采用 Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0) 许可，详见 [LICENSE](LICENSE)
-- **代码与工具**：采用 MIT 许可，详见 [LICENSE-CODE.md](LICENSE-CODE.md)
+- **知识内容**：采用知识共享署名-相同方式共享 4.0 国际协议（CC BY-SA 4.0）——详见 [LICENSE](LICENSE) 文件。
+- **代码与工具**：采用 MIT 协议——详见 [LICENSE-CODE.md](LICENSE-CODE.md) 文件。

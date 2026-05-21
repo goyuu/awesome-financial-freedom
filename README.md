@@ -2,175 +2,109 @@
 
 [English](./README.md) | [简体中文](./README.zh-CN.md)
 
-> An awesome list of structured knowledge about financial independence, packaged as an AI Skill for effortless conversational learning.
-> A beginner asks AI: I earn $5,000/month and save $1,000. When can I retire? AI gives the answer.
+> Answer 5 questions → know your FIRE stage → get a stage-specific tool → track monthly progress → send to AI for deep analysis.
+> Built for beginners who don't know where to start, not just developers who can read JSON.
 
 [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
 [![License: CC BY-SA 4.0](https://img.shields.io/badge/License-CC%20BY--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-sa/4.0/)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
-[![Discussions](https://img.shields.io/badge/Discussions-Open-blue.svg)](https://github.com/ada/awesome-financial-freedom/discussions)
+[![Discussions](https://img.shields.io/badge/Discussions-Open-blue.svg)](https://github.com/adashuai5/awesome-financial-freedom/discussions)
 
-**Last updated: 2026-04-14**
+**Created**: 2026-04-12 · **Last updated**: 2026-04-26
 
-![Demo: AI answers retirement and rebalancing](assets/hero-demo.svg)
+![Stage diagnosis → 6 tools → monthly tracking → AI analysis](assets/hero-demo.svg)
 
-## 🧭 Project Navigation
+## 🧭 Quick Navigation
 
-- **Playbooks**: [`playbooks/`](playbooks)
-- **Workflows**: [`workflows/`](workflows)
-- **Prompts**: [`prompts/`](prompts)
-- **Agents**: [`agents/`](agents)
-- **Data**: [`data/`](data)
-- **Playbook guides**: [`playbooks/guides/README.md`](playbooks/guides/README.md)
-- **Architecture**: [`playbooks/guides/money-os-architecture.md`](playbooks/guides/money-os-architecture.md)
-- **Getting started**: [`playbooks/tutorials/getting-started.md`](playbooks/tutorials/getting-started.md)
-- **Book summaries**: [`playbooks/book-summaries`](playbooks/book-summaries)
+- **Demo**: [`https://adashuai5.github.io/awesome-financial-freedom/demo/`](https://adashuai5.github.io/awesome-financial-freedom/demo/) (live, no install)
+- **Playbooks** (guides + tutorials): [`playbooks/guides/`](playbooks/guides)
 - **Knowledge nodes**: [`knowledge/nodes/`](knowledge/nodes)
-- **Skills**: [`skills/`](skills)
-- **Tools**: [`tools/`](tools)
-- **Contributing**: [`CONTRIBUTING.md`](CONTRIBUTING.md)
+- **Workflows**: [`workflows/`](workflows)
+- **Prompts & Agents**: [`prompts/`](prompts) · [`agents/`](agents)
+- **Skills & Tools**: [`skills/`](skills) · [`tools/`](tools)
+- **Book summaries**: [`playbooks/book-summaries/`](playbooks/book-summaries)
 
 ## 🤔 What is this?
 
-**Awesome Financial Freedom** is an open-source, AI-native knowledge base for financial freedom. It combines the structured curation of awesome lists with AI Skill conversational capabilities, enabling "effortless" learning.
+**Awesome Financial Freedom** is an open-source, AI-native FIRE planning system for Chinese investors. It combines structured knowledge, deterministic calculators, and a stage-based UX so a financial beginner knows exactly what to do today — not just what the math says in 20 years.
 
-Instead of just a static list of links, this repo provides:
+Core components:
 
-- 📚 **Structured JSON knowledge nodes** covering mindset, saving, investing, and FIRE principles.
-- 🤖 **Ready-to-use AI Skills** for Claude and ChatGPT, so you can ask questions like:
-  - _"I earn $5,000/month and save $1,000. When can I retire?"_
-  - _"Review my portfolio: 70% S&P 500, 30% bonds."_
-  - _"What's the 'Dual-Wheel Asset Allocation' method?"_
-- 🧮 **Embedded calculators** and formulas for transparent, step-by-step answers.
-- 📍 **Learning path guide** for stage-based progression and personalized financial goals.
-- ✅ **Actionable steps guide** for quick wins and risk-aware first moves, see [`playbooks/guides/actionable-steps.md`](playbooks/guides/actionable-steps.md).
+- 🎯 **5-question stage diagnosis** — detects your current FIRE stage (debt phase → emergency fund → investing → accelerating → optimizing → sprinting) in under 30 seconds
+- 🛠️ **6 stage-specific tools** — debt avalanche/snowball calculator, emergency fund progress bar, DCA simulator, savings-rate sensitivity table, rebalancing checklist, Coast FIRE calculator
+- 📊 **Extended FIRE calculator** — income growth simulation, side-income scenarios, retirement lifestyle comparison (city / smaller city / Southeast Asia arbitrage / minimal), Coast FIRE check
+- 🏦 **China-specific** — 综合所得税档 + 专项附加扣除 → "税后真实储蓄率"; 个人养老金 (¥12,000/yr tax deduction); 公积金 optimization; A-share/QDII/Gold ETF codes (510300/513500/518880)
+- 📊 **Multi-scenario comparator** — save 2–4 scenarios (e.g. "现状 / 加薪 10% / 副业 3k / 搬清迈") and see FIRE-age delta side-by-side
+- 💾 **Monthly snapshot tracking** — localStorage snapshots, sparkline chart, trend arrows, **CSV / JSON export**, no backend
+- 🤖 **One-click AI analysis (BYOK)** — paste your own Anthropic API key (stored locally), streams Claude analysis directly in the browser; or copy a structured 8-section prompt for any LLM
+- 🧠 **28 JSON knowledge nodes** — visible in-UI knowledge card, structured for accurate AI consumption
+- 🤖 **One-click AI report** — structured 8-section prompt for Claude/ChatGPT, covers all new fields
 
-**Zero setup. Just chat or run workflows locally.**
+## 🎯 Target audience
 
-## 🚀 直接可用入口
-
-如果你希望快速上手并直接得到执行建议，请先运行下面两个核心工作流：
-
-- `npm run run:workflow workflows/fire_planning.yaml`
-- `npm run run:workflow workflows/portfolio_rebalancing.yaml`
-
-> 这是当前最直接的“快速验证”方式。本地命令会输出你要的结果，仓库中的截图演示了实际对话和计算输出。
-
-这两个入口会直接输出：
-
-- FIRE 目标资产和达成年限
-- 关键行动建议
-- 资产配置再平衡买卖方案
-
-## ✅ 现在能做什么
-
-### 1️⃣ 直接生成财富自由计划
-
-运行：
-
-```bash
-npm run run:workflow workflows/fire_planning.yaml
-```
-
-它会模拟执行 FIRE 规划工作流，并输出：
-
-- 目标资产
-- 预计达到 FIRE 的年限
-- 关键行动建议
-
-### 2️⃣ 直接生成再平衡方案
-
-运行：
-
-```bash
-npm run run:workflow workflows/portfolio_rebalancing.yaml
-```
-
-它会模拟执行再平衡工作流，输出：
-
-- 当前资产配置偏差
-- 买入/卖出建议
-- 交易阈值和风险说明
-
-## 🎯 目标用户
-
-- 想要直接拿到“财富自由方向”和“执行步骤”的人
-- 刚工作想存钱但不知道从哪开始的年轻人
-- 听说了 FIRE 但不知道具体怎么算的人
-- 想用 AI 帮自己理财的人
-- 需要把“理财策略”转成“实际行动”的人
+- People who want a direct path to financial freedom and actionable steps
+- Young professionals who want to save but do not know where to start
+- People who have heard of FIRE but do not know how it is calculated
+- People who want AI to help plan their finances
+- People who want to turn financial strategy into practical action
 
 ## ✨ Why This Exists
 
-The internet is full of personal finance blogs, paid courses, and scattered advice. But there is **no open-source, structured, AI-ready knowledge base** dedicated to financial freedom.
+The internet is full of personal finance blogs, paid courses, and scattered advice. But there is **no open-source, structured, AI-ready financial freedom execution system** dedicated to helping people turn plans into action.
 
-This project fills that gap by providing a **community-driven, transparent, and conversational** learning path. Its core innovation lies in combining the structured curation of awesome lists with AI Skill conversational capabilities, enabling "effortless" learning.
+This project fills that gap by providing a **community-driven, transparent, and executable AI planning system**. Its core innovation lies in combining structured workflows, prompt templates, and calculator logic into a usable execution engine.
 
 ## 📚 Knowledge Sources
 
-Curated insights from:
+- FIRE mathematics: 4% rule, Trinity Study ([Wikipedia](https://en.wikipedia.org/wiki/Trinity_study))
+- Dual-Wheel Asset Allocation (沪深300 + S&P 500 + Gold + Bonds)
+- China third-pillar pension (个人养老金) rules
+- FIRE community research on savings rate, Coast FIRE, geographic arbitrage
+- Additional sources in [`playbooks/book-summaries/`](playbooks/book-summaries/)
 
-- Tony Robbins' _Money: Master the Game_ trilogy ([Amazon](https://www.amazon.com/Money-Master-Game-7-Simple/dp/1476757801))
-- JL Collins' _The Simple Path to Wealth_ ([Amazon](https://www.amazon.com/Simple-Path-Wealth-financial-independence/dp/1533667926))
-- FIRE mathematics (4% rule, Trinity Study) ([Wikipedia](https://en.wikipedia.org/wiki/Trinity_study))
-- 阿秋's _让钱去工作_ (Dual-Wheel Asset Allocation) ([JD.com](https://item.jd.com/100240963394.html) or search for "让钱去工作 阿秋")
-- And more (see `playbooks/book-summaries`)
+## 🚀 How to Use
 
-## 🚀 How to Use (The "No-Brainer" Way)
+### 1️⃣ Try the demo (no install needed)
 
-### 0️⃣ Quick Commands
+Open **`https://adashuai5.github.io/awesome-financial-freedom/demo/`**
 
-Use these local commands to validate, test, and run workflows:
+First thing you'll see: 5 yes/no questions that detect your FIRE stage in under 30 seconds. Then a stage-specific tool loads automatically — no need to read the full calculator.
 
-- `npm run validate` — validate knowledge nodes and README sync
-- `npm run test` — run the existing calculator test suite
-- `npm run ci` — run validation, build skills, and tests
-- `npm run run:workflow workflows/<workflow-file>.yaml` — simulate a workflow
-- `npm run generate:task ./task.md` — generate a sample task markdown file
+### 2️⃣ Fill in your numbers (optional but recommended)
 
-### 1️⃣ Talk to the AI (Easiest)
+The main form takes: age, income, expenses, assets (bank / 公积金 / stocks / real estate), debt, and risk profile. New fields: 个人养老金 contribution, income growth rate, side income, target retirement age, and retirement lifestyle preference.
 
-- Add the **Awesome Financial Freedom Skill** to your Claude or ChatGPT.
-- Start asking questions. The AI will retrieve relevant knowledge nodes and perform calculations for you.
+### 3️⃣ Explore deeper
 
-### 2️⃣ Browse the Knowledge Base
+Once you have a result, dive into the system:
 
-Clone this repo and explore the `/knowledge/nodes` directory. Each `.json` file contains:
-
-- `question_patterns` (what the AI listens for)
-- `answer` with summary, formula, example, and limitations
-- `action_item` (a concrete next step for you)
-- `source` citations
-
-### 3️⃣ AI-Executable Workflows
-
-The new `workflows/` directory contains executable workflow definitions that agents can run directly. Each workflow is paired with prompt templates in `prompts/` and can be simulated using `tools/run-workflow.js`.
-
-Use these workflows to automate:
-
-- AI 内容生产与增长策略
-- 联盟营销 SEO 自动化
-- 指数基金定投模拟与教育计划
-
-> 维护文档时请运行 `npm run check:readmes`，以确保 `README.md` 和 `README.zh-CN.md` 保持一致。
-
-### 4️⃣ Build Your Own Tool
-
-Use the structured data and calculators (`/tools`) to integrate financial freedom logic into your own apps.
+| If you want to… | Go to |
+|----------------|-------|
+| Run locally + AI assistant | [`playbooks/tutorials/getting-started.md`](playbooks/tutorials/getting-started.md) |
+| Understand the system design | [`playbooks/guides/money-os-architecture.md`](playbooks/guides/money-os-architecture.md) |
+| Execute via CLI | `node tools/run-workflow.js workflows/fire_planning.yaml` (Node.js ≥18) |
+| Browse all workflows | [`workflows/`](workflows) |
 
 ## 📖 Knowledge Structure
 
-- 01-mindset/ — 心态与价值观
-- 02-foundation/ — 基础财务健康
-- 03-accumulation/ — 储蓄与收入增长
-- 04-allocation/ — 资产配置与投资
-- 05-automation/ — 自动化储蓄与投资
-- 06-freedom/ — FIRE 目标与提款策略
-- 07-learning-path/ — 路径规划与阶段性行动建议
+Seven progressive stages from mindset to financial independence:
+
+| Stage | Directory | What you'll learn |
+|-------|-----------|-------------------|
+| 01 — Mindset | [`knowledge/nodes/01-mindset/`](knowledge/nodes/01-mindset) | What financial freedom really means; money as a tool, not a goal |
+| 02 — Foundation | [`knowledge/nodes/02-foundation/`](knowledge/nodes/02-foundation) | Emergency funds, insurance, eliminating high-interest debt |
+| 03 — Accumulation | [`knowledge/nodes/03-accumulation/`](knowledge/nodes/03-accumulation) | Increase savings rate; side income; compound growth basics |
+| 04 — Allocation | [`knowledge/nodes/04-allocation/`](knowledge/nodes/04-allocation) | Asset allocation, Diversification, index funds, rebalancing |
+| 05 — Automation | [`knowledge/nodes/05-automation/`](knowledge/nodes/05-automation) | Automate savings and investments so discipline becomes automatic |
+| 06 — Freedom | [`knowledge/nodes/06-freedom/`](knowledge/nodes/06-freedom) | FIRE math, safe withdrawal rate, coast FIRE, barista FIRE |
+| 07 — Learning Path | [`knowledge/nodes/07-learning-path/`](knowledge/nodes/07-learning-path) | Stage-based roadmap; which node to read next |
 
 ## 🤝 Contributing
 
-We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) for details on how to contribute to this project.
+Contributions welcome! Please read [`CONTRIBUTING.md`](CONTRIBUTING.md) for:
+- How to report issues or suggest new knowledge nodes
+- Pull request workflow and coding style
+- How to add prompts, workflows, or playbook content
 
 ## 📄 License
 
